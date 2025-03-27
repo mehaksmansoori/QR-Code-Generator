@@ -21,7 +21,7 @@ if st.button("Generate QR Code"):
         )
         qr.add_data(data)
         qr.make(fit=True)
-        img = qr.make_image(fill_color="blue", back_color="white")
+        img = qr.make_image(fill_color="black", back_color="white")
 
         # Convert image to BytesIO buffer
         img_buffer = io.BytesIO()
@@ -32,7 +32,7 @@ if st.button("Generate QR Code"):
         img_display = Image.open(img_buffer)
 
         # Display the QR code
-        st.image(img_display, caption="Here is your QR Code!", use_column_width=True)
+        st.image(img_display, caption="Here is your QR Code!", use_container_width=True)
 
         # Download button
         st.download_button(
