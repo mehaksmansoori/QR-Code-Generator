@@ -28,8 +28,11 @@ if st.button("Generate QR Code"):
         img.save(img_buffer, format="PNG")
         img_buffer.seek(0)
 
+        # Convert BytesIO to a format st.image() can display
+        img_display = Image.open(img_buffer)
+
         # Display the QR code
-        st.image(img, caption="Here is your QR Code!", use_column_width=True)
+        st.image(img_display, caption="Here is your QR Code!", use_column_width=True)
 
         # Download button
         st.download_button(
